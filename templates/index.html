@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Diabetes Prediction</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+<body>
+  <div class="form-container">
+    <h1>Diabetes Prediction</h1>
+    <form action="{{ url_for('predict') }}" method="POST">
+        <input type="number" name="gender" placeholder="Gender (Male=0, Female=1)" required="required" />
+        <input type="number" name="age" placeholder="Age" required="required" />
+        <input type="number" name="hypertension" placeholder="Hypertension (No=0, Yes=1)" required="required" />
+        <input type="number" name="heart_disease" placeholder="Heart Disease (No=0, Yes=1)" required="required" />
+        <input type="number" name="smoking_history" placeholder="Smoking History (Never=0, Former=1, Current=2, Unknown=3)" required="required" />
+        <input type="text" name="bmi" placeholder="BMI" required="required" />
+        <input type="text" name="HbA1c_level" placeholder="HbA1c Level" required="required" />
+        <input type="text" name="blood_glucose_level" placeholder="Blood Glucose Level" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+    <div class="prediction">
+      {{ prediction_text }}
+    </div>
+  </div>
+</body>
+</html>
